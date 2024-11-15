@@ -46,7 +46,15 @@ public class ProblemSolutions {
         }
 
     } // End class selectionSort
-
+/*
+for i=0 to a.length-1
+        min = i
+        for j=i+1 to a.length-1
+           if a[j] < a[min]
+              min = j
+           if min != i
+              swap a[min] and a[j]
+*/
 
     /**
      *  Method mergeSortDivisibleByKFirst
@@ -102,6 +110,10 @@ public class ProblemSolutions {
         // ALLOCATES AUXILIARY DATA STRUCTURES (TEMPORARY ARRAYS). IT WILL BE EASIER
         // TO CODE WITH A SPACE COMPLEXITY OF O(N LOG N), WHICH IS FINE FOR PURPOSES
         // OF THIS PROGRAMMING EXERCISES.
+
+        return;
+
+    }
         
 /* 
 MergeSort(array, low, high) {
@@ -113,20 +125,51 @@ MergeSort(array, low, high) {
     } 
 }
 */
-/* 
-Algorithm mergeSort(S, C)
-	Input sequence S with n elements, comparator C 
-	Output sequence S sorted according to C
-if S.size() > 1
-	(S1, S2) <-- partition(S, n/2) 
-	mergeSort(S1, C)
-	mergeSort(S2, C)
-	S <-- merge(S1, S2)
-*/
 /*   
-    private void mergeDivisbleByKFirst(array, left, mid, right, int k) {
-        n1 = mid (RIGHT) - left + 1;
-        n2 = high – mid (LEFT - RIGHT);
+    private void mergeDivisbleByKFirst(array, low (LEFT), mid, right, int k) {
+        int[] temp = new int[right - left + 1];
+        int index = 0;
+        int i = left, j = mid + 1;
+        while (i <= mid && j <= right) {
+            if (arr[i] % k == 0 && arr[j] % k != 0) {
+                temp[index++] = arr[i++];
+            } else if (arr[j] % k == 0 && arr[i] % k != 0) {
+                temp[index++] = arr[j++];
+            } else if (arr[i] % k == 0 && arr[j] % k == 0) {
+                if (arr[i] <= arr[j]) {
+                    temp[index++] = arr[i++];
+                } else {
+                    temp[index++] = arr[j++];
+                }
+            } else {
+                if (arr[i] <= arr[j]) {
+                    temp[index++] = arr[i++];
+                } else {
+                    temp[index++] = arr[j++];
+                }
+            }
+        }
+
+        while (i <= mid && arr[i] % k == 0) {
+            temp[index++] = arr[i++];
+        }
+
+        while (j <= right && arr[j] % k == 0) {
+            temp[index++] = arr[j++];
+        }
+
+        while (i <= mid) {
+            temp[index++] = arr[i++];
+        }
+
+        while (j <= right) {
+            temp[index++] = arr[j++];
+        }
+
+        System.arraycopy(temp, 0, arr, left, temp.length);
+    }
+        n1 = mid - left + 1;
+        n2 = high – mid (RIGHT - mid);
         let L[1,...n1+1] and R[1...n2+1] be new arrays for (i=1 to n1)
         L[i] = array[low + i-1]
         For (j=1 to n2)
@@ -139,13 +182,21 @@ if S.size() > 1
         }
     }
 */ 
-
+/* 
+Algorithm mergeSort(S, C)
+	Input sequence S with n elements, comparator C 
+	Output sequence S sorted according to C
+if S.size() > 1
+	(S1, S2) <-- partition(S, n/2) 
+	mergeSort(S1, C)
+	mergeSort(S2, C)
+	S <-- merge(S1, S2)
+*/
 /* 
 Algorithm merge(A, B)
 	Input sequences A and B with 
         n/2 elements each 
 	Output sorted sequence of A union B
-
 S <-- empty sequence
 while NOTA.isEmpty()  ^ NOTB.isEmpty()
 	if A.first().element() < B.first().element()
@@ -159,9 +210,6 @@ while NOTB.isEmpty()
 return S
  */
 
-        return;
-
-    }
 
 
     /**
