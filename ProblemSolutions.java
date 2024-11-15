@@ -1,6 +1,7 @@
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   NATE CALDERON / SECTION 001
+ *
  *
  *   This java file contains the problem solutions for the methods selectionSort,
  *   mergeSortDivisibleByKFirst, asteroidsDestroyed, and numRescueCanoes methods.
@@ -101,6 +102,62 @@ public class ProblemSolutions {
         // ALLOCATES AUXILIARY DATA STRUCTURES (TEMPORARY ARRAYS). IT WILL BE EASIER
         // TO CODE WITH A SPACE COMPLEXITY OF O(N LOG N), WHICH IS FINE FOR PURPOSES
         // OF THIS PROGRAMMING EXERCISES.
+        
+/* 
+MergeSort(array, low, high) {
+    If (low < high ) (LEFT >= RIGHT) {
+        mid = floor((low + high) / 2); (MID = LEFT + (RIGHT - LEFT) / 2) 
+        MergeSort(array, low, mid);
+        MergeSort(array, mid+1, high); 
+        Merge(array, low, mid, high);
+    } 
+}
+*/
+/* 
+Algorithm mergeSort(S, C)
+	Input sequence S with n elements, comparator C 
+	Output sequence S sorted according to C
+if S.size() > 1
+	(S1, S2) <-- partition(S, n/2) 
+	mergeSort(S1, C)
+	mergeSort(S2, C)
+	S <-- merge(S1, S2)
+*/
+/*   
+    private void mergeDivisbleByKFirst(array, left, mid, right, int k) {
+        n1 = mid (RIGHT) - left + 1;
+        n2 = high – mid (LEFT - RIGHT);
+        let L[1,...n1+1] and R[1...n2+1] be new arrays for (i=1 to n1)
+        L[i] = array[low + i-1]
+        For (j=1 to n2)
+        R[j] = array[mid + j] L[n1 + 1] = infinity R[n2 + 1] = infinity i=1
+        j=1
+        for (k=low to high) {
+            if L[i] <= R[j] array[k] = L[i] i=i+1
+        else
+        array[k] = R[j] j=j+1
+        }
+    }
+*/ 
+
+/* 
+Algorithm merge(A, B)
+	Input sequences A and B with 
+        n/2 elements each 
+	Output sorted sequence of A union B
+
+S <-- empty sequence
+while NOTA.isEmpty()  ^ NOTB.isEmpty()
+	if A.first().element() < B.first().element()
+		S.addLast(A.remove(A.first()))
+	else
+		S.addLast(B.remove(B.first()))
+while NOTA.isEmpty()
+    S.addLast(A.remove(A.first()))
+while NOTB.isEmpty()
+    S.addLast(B.remove(B.first()))
+return S
+ */
 
         return;
 
