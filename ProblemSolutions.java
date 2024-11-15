@@ -135,7 +135,7 @@ if S.size() > 1
         for (k=low to high) {
             if L[i] <= R[j] array[k] = L[i] i=i+1
         else
-        array[k] = R[j] j=j+1
+            array[k] = R[j] j=j+1
         }
     }
 */ 
