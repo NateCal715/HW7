@@ -245,14 +245,12 @@ return S
         // Ideas: Sort with smallest first, so you can create the most mass possible
         // Sort the array of asteroids in ascending order
         Arrays.sort(asteroids);
-        // Compensate for overflow
-        long currentMass = mass;
         // Iterate thru asteroids
         for (int asteroid : asteroids) {
             // if currentMass is greater or equal to asteroid
-            if (currentMass >= asteroid) {
+            if (mass >= asteroid) {
                 // Planet wins, add asteroid to mass
-                currentMass += asteroids;
+                mass += asteroids;
             } else {
                 // Case where currentMass is not greater or equal to asteroid
                 return false; 
