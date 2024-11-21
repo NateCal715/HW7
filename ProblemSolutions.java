@@ -152,8 +152,8 @@ MergeSort(array, low, high) {
 */
 /*   
     private void mergeDivisbleByKFirst(array, low (LEFT), mid, right, int k) {
-        n1 = mid - left + 1;
-        n2 = high – mid (RIGHT - mid);
+        n1 = mid (RIGHT) - left + 1;
+        n2 = high – mid (mid - RIGHT);
         let L[1,...n1+1] and R[1...n2+1] be new arrays for (i=1 to n1)
         L[i] = array[low + i-1]
         For (j=1 to n2)
