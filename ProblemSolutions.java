@@ -55,8 +55,8 @@ public class ProblemSolutions {
                 }
             }
                 // Swap min @ index j and current element i
-                int temp = values[selected];
-                values[selected] = values[i];
+                int temp = values[min];
+                values[min] = values[i];
                 values[i] = temp;
 
         }
@@ -118,7 +118,7 @@ for i=0 to a.length-1
     private void mergeDivisbleByKFirst(int arr[], int k, int left, int mid, int right)
     {
        int[] temp = new int[right - left + 1];
-        int i = left, j = mid + 1; t = 0;
+        int i = left, j = mid + 1, t = 0;
         while (i <= mid) {
             if (arr[i] % k == 0 ) temp[t++] = arr[i];
             i++;
