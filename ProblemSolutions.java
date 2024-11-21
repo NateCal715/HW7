@@ -306,7 +306,7 @@ return S
         // 
         while (i <= j) {
             if (people[i] + people[j] <= limit) {
-                i++
+                i++;
             }
             // Decrement and increment pointers
             j--;
