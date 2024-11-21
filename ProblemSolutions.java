@@ -242,10 +242,24 @@ return S
      */
 
     public static boolean asteroidsDestroyed(int mass, int[] asteroids) {
-
-        // YOUR CODE GOES HERE, CONSIDER USING ARRAYS.SORT()
-
-        return false;
+        // Ideas: Sort with smallest first, so you can create the most mass possible
+        // Sort the array of asteroids in ascending order
+        Arrays.sort(asteroids);
+        // Compensate for overflow
+        long currentMass = mass;
+        // Iterate thru asteroids
+        for (int asteroid : asteroids) {
+            // if currentMass is greater or equal to asteroid
+            if (currentMass >= asteroid) {
+                // Planet wins, add asteroid to mass
+                currentMass += asteroids;
+            } else {
+                // Case where currentMass is not greater or equal to asteroid
+                return false; 
+            }
+        }
+        // Planet Wins
+        return true;
 
     }
 
@@ -253,7 +267,7 @@ return S
     /**
      * Method numRescueSleds
      *
-     * You are given an array people where people[i] is the weight of the ith person,
+     * You are given an array of people where people[i] is the weight of the ith person,
      * and an infinite number of rescue sleds where each sled can carry a maximum weight
      * of limit. Each sled carries at most two people at the same time, provided the
      * sum of the weight of those people is at most limit. Return the minimum number
@@ -280,11 +294,25 @@ return S
      */
 
     public static int numRescueSleds(int[] people, int limit) {
-
-        // YOUR CODE GOES HERE, CONSIDER USING ARRAYS.SORT
-
-        return -1;
-
+        // Ideas: sort in ascending order, 
+        // Identify if i + (i++) >= limit
+        
+        // Sort people in ascending order
+        Arrays.sort(people);
+        // Pointer Usage
+        int i = 0;
+        int j = people.length - 1;
+        int sleds = 0;
+        // 
+        while (i <= j) {
+            if (people[i] + people[j] <= limit) {
+                i++
+            }
+            // Decrement and increment pointers
+            j--;
+            sleds++;
+        }
+        return sleds++;
     }
 
 } // End Class ProblemSolutions
