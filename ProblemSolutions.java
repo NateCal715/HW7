@@ -38,10 +38,26 @@ public class ProblemSolutions {
         int n = values.length;
 
         for (int i = 0; i < n - 1; i++) {
-
-            // YOU CODE GOES HERE -- COMPLETE THE INNER LOOP OF THIS
-            // "SELECTION SORT" ALGORITHM.
-            // DO NOT FORGET TO ADD YOUR NAME / SECTION ABOVE
+            // Repurposed Selection Sort Psuedo Code
+            // Initializing Min at beginning
+            int min = i;
+            // Increment using optional n value
+            for (int j = i + 1; j < n; j++) {
+                // Find the index of the real min element
+                if (ascending) {
+                    if (values[j] < values[min]) {
+                        min = j;
+                    }
+                } else {
+                    if (values[j] > values[min]) {
+                        min = j;
+                    }
+                }
+            }
+                // Swap min @ index j and current element i
+                int temp = values[selected];
+                values[selected] = values[i];
+                values[i] = temp
 
         }
 
@@ -101,18 +117,27 @@ for i=0 to a.length-1
 
     private void mergeDivisbleByKFirst(int arr[], int k, int left, int mid, int right)
     {
-        // YOUR CODE GOES HERE, THIS METHOD IS NO MORE THAN THE STANDARD MERGE PORTION
-        // OF A MERGESORT, EXCEPT THE NUMBERS DIVISIBLE BY K MUST GO FIRST WITHIN THE
-        // SEQUENCE PER THE DISCUSSION IN THE PROLOGUE ABOVE.
-        //
-        // NOTE: YOU CAN PROGRAM THIS WITH A SPACE COMPLEXITY OF O(1) OR O(N LOG N).
-        // AGAIN, THIS IS REFERRING TO SPACE COMPLEXITY. O(1) IS IN-PLACE, O(N LOG N)
-        // ALLOCATES AUXILIARY DATA STRUCTURES (TEMPORARY ARRAYS). IT WILL BE EASIER
-        // TO CODE WITH A SPACE COMPLEXITY OF O(N LOG N), WHICH IS FINE FOR PURPOSES
-        // OF THIS PROGRAMMING EXERCISES.
+       int[] temp = new int[right - left + 1];
+        int i = left, j = mid + 1; t = 0;
+        while (i <= mid) {
+            if (arr[i] % k == 0 ) temp[t++] = arr[i];
+            i++;
+        } 
+        while (j <= right) {
+            if (arr[j] % k == 0) temp[t++] = arr[j];
+            j++;
+        }
 
-        return;
+        while (i <= mid) {
+            if (arr[i] % k != 0) temp[t++] = arr[i];
+            i++;
+        }
+        while (j <= right) {
+            if (arr[j] != 0) temp[t++] = arr[j];
+            j++;
+        }
 
+        System.arraycopy(temp, 0, arr, left, temp.length);
     }
         
 /* 
@@ -127,47 +152,6 @@ MergeSort(array, low, high) {
 */
 /*   
     private void mergeDivisbleByKFirst(array, low (LEFT), mid, right, int k) {
-        int[] temp = new int[right - left + 1];
-        int index = 0;
-        int i = left, j = mid + 1;
-        while (i <= mid && j <= right) {
-            if (arr[i] % k == 0 && arr[j] % k != 0) {
-                temp[index++] = arr[i++];
-            } else if (arr[j] % k == 0 && arr[i] % k != 0) {
-                temp[index++] = arr[j++];
-            } else if (arr[i] % k == 0 && arr[j] % k == 0) {
-                if (arr[i] <= arr[j]) {
-                    temp[index++] = arr[i++];
-                } else {
-                    temp[index++] = arr[j++];
-                }
-            } else {
-                if (arr[i] <= arr[j]) {
-                    temp[index++] = arr[i++];
-                } else {
-                    temp[index++] = arr[j++];
-                }
-            }
-        }
-
-        while (i <= mid && arr[i] % k == 0) {
-            temp[index++] = arr[i++];
-        }
-
-        while (j <= right && arr[j] % k == 0) {
-            temp[index++] = arr[j++];
-        }
-
-        while (i <= mid) {
-            temp[index++] = arr[i++];
-        }
-
-        while (j <= right) {
-            temp[index++] = arr[j++];
-        }
-
-        System.arraycopy(temp, 0, arr, left, temp.length);
-    }
         n1 = mid - left + 1;
         n2 = high – mid (RIGHT - mid);
         let L[1,...n1+1] and R[1...n2+1] be new arrays for (i=1 to n1)
