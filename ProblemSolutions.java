@@ -57,7 +57,7 @@ public class ProblemSolutions {
                 // Swap min @ index j and current element i
                 int temp = values[selected];
                 values[selected] = values[i];
-                values[i] = temp
+                values[i] = temp;
 
         }
 
