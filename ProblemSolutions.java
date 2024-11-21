@@ -250,7 +250,7 @@ return S
             // if currentMass is greater or equal to asteroid
             if (mass >= asteroid) {
                 // Planet wins, add asteroid to mass
-                mass += asteroids;
+                mass += asteroid;
             } else {
                 // Case where currentMass is not greater or equal to asteroid
                 return false; 
