@@ -301,15 +301,18 @@ return S
         int i = 0;
         int j = people.length - 1;
         int sleds = 0;
-        // 
+        // If people[i] + people[j] greater than or equal to limit
         while (i <= j) {
             if (people[i] + people[j] <= limit) {
+                // go to next element and check again
                 i++;
             }
+            // When finished checking
             // Decrement and increment pointers
             j--;
             sleds++;
         }
+        
         return sleds++;
     }
 
